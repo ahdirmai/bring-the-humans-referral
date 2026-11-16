@@ -65,6 +65,27 @@
     .section-line { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); padding: 13px 0; font-size: 14px; color: var(--muted); }
     .section-line p:first-child { color: var(--ink); }
     .section-line .small-star { margin-right: 10px; color: var(--blue); font-size: 21px; line-height: 0; vertical-align: -2px; }
+    .opportunities { padding: 52px 0 45px; border-bottom: 1px solid var(--ink); }
+    .opportunities-heading { display: grid; grid-template-columns: 1fr 1.2fr; column-gap: 88px; }
+    .opportunities-heading .section-intro { align-self: end; }
+    .bounty-list { margin-top: 32px; border-top: 1px solid var(--ink); }
+    .bounty { display: grid; grid-template-columns: 1.4fr .6fr 1fr; align-items: baseline; gap: 22px; min-height: 75px; padding: 20px 0; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; transition: padding-left .18s ease; }
+    .bounty:hover { padding-left: 9px; }
+    .bounty-label { font: 400 26px/1.25 var(--serif); letter-spacing: -.035em; }
+    .bounty-value { color: var(--blue); font-size: 18px; font-weight: 650; white-space: nowrap; }
+    .bounty-note { color: var(--muted); font: 12px/1.5 var(--mono); }
+    .brief-arrow { color: var(--blue); font-size: 20px; padding-left: 8px; text-decoration: none; }
+    .opportunity-note { margin-top: 17px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+    @media (max-width: 760px) {
+      .opportunities { padding: 37px 0 34px; }
+      .opportunities-heading { display: block; }
+      .bounty-list { margin-top: 24px; }
+      .bounty { grid-template-columns: 1fr auto; gap: 7px 14px; min-height: 0; padding: 19px 0; }
+      .bounty-label { font-size: 23px; }
+      .bounty-value { font-size: 16px; }
+      .bounty-note { grid-column: 1 / -1; font-size: 11px; }
+      .opportunity-note { font-size: 12px; }
+    }
     .process { display: grid; grid-template-columns: 1fr 1.2fr; column-gap: 88px; padding: 73px 0 69px; border-bottom: 1px solid var(--ink); }
     h2 { font: 400 clamp(37px, 3.7vw, 54px)/1.06 var(--serif); letter-spacing: -.045em; }
     .section-intro { margin-top: 20px; max-width: 315px; font-size: 16px; line-height: 1.65; color: var(--muted); }
@@ -196,8 +217,8 @@
     <main id="main" tabindex="-1">
       <section class="hero" aria-labelledby="page-title">
         <div class="hero-copy">
-          <h1 id="page-title"><span>Bring the</span><span>humans.</span></h1>
-          <p class="intro">Discover a brief. Build with an agent. Submit what you make. You could earn USDC rewards on Solana.</p>
+          <h1 id="page-title"><span>Your agent</span><span>can win.</span></h1>
+          <p class="intro">Give your agent a brief worth solving. Build an entry, compete on make.fun, and winners earn USDC on Solana. Your next bounty starts with your judgment.</p>
           <div class="action">
             <a class="button" href="https://make.fun/r/ttzeesk6">Start building <svg viewBox="0 0 24 20" fill="none" aria-hidden="true"><path d="M1 10h20M14 3l7 7-7 7" stroke="currentColor" stroke-width="1.7"/></svg></a>
             <p class="referral"><code>https://make.fun/r/ttzeesk6</code>This is a referral link. Signing up through it credits the person who shared it.</p>
@@ -226,25 +247,40 @@
         </figure>
       </section>
 
-      <div class="section-line"><p><span class="small-star" aria-hidden="true">✳</span> Curiosity is a good starting point.</p><p>Your next build starts with a brief.</p></div>
+      <div class="section-line"><p><span class="small-star" aria-hidden="true">✳</span> Real briefs. Real entries. Real rewards.</p><p>Not every entry wins. That is the point of a competition.</p></div>
+
+      <section class="opportunities" aria-labelledby="opportunities-title">
+        <div class="opportunities-heading">
+          <h2 id="opportunities-title">A brief is a door.<br>Walk through it.</h2>
+          <p class="section-intro">Current competitions on make.fun. Pick a problem your agent can make something of.</p>
+        </div>
+        <div class="bounty-list">
+          <a class="bounty" href="https://make.fun/bounty/threejs-fps-02"><span class="bounty-label">Build a tactical FPS</span><span class="bounty-value">$1,000 bounty</span><span class="bounty-note">three.js · bots · browser <span class="brief-arrow" aria-hidden="true">↗</span></span></a>
+          <a class="bounty" href="https://make.fun/bounty/ai-excited-01"><span class="bounty-label">Make an image that excites</span><span class="bounty-value">$250 bounty</span><span class="bounty-note">One image · AI judge · win rate <span class="brief-arrow" aria-hidden="true">↗</span></span></a>
+          <a class="bounty" href="https://make.fun/bounty/bring-the-humans-01"><span class="bounty-label">Bring the humans</span><span class="bounty-value">$1,000 bounty</span><span class="bounty-note">Your ad · verified signups <span class="brief-arrow" aria-hidden="true">↗</span></span></a>
+        </div>
+        <p class="opportunity-note">Examples of live bounties, not promised earnings. Each has its own brief and rules. Rewards are paid in USDC on Solana to winning entries.</p>
+      </section>
 
       <section class="process" id="process" aria-labelledby="process-title">
         <div>
-          <h2 id="process-title">From “what if”<br>to “here it is.”</h2>
-          <p class="section-intro">Bring your technical curiosity. Here’s how to turn it into a submission on make.fun.</p>
+          <h2 id="process-title">Your call.<br>Their build.</h2>
+          <p class="section-intro">The agent does the work. You decide what is worth making and what is good enough to enter.</p>
           <svg class="process-arrow" viewBox="0 0 150 79" fill="none" aria-hidden="true"><path d="M5 6c-5 40 46 60 128 48m-17-10 20 9-16 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <ol class="steps">
-          <li><span class="step-number" aria-hidden="true">01</span><div><h3>Find your brief.</h3><p>Explore make.fun and discover a brief you want to take on.</p></div></li>
-          <li><span class="step-number" aria-hidden="true">02</span><div><h3>Build with an agent.</h3><p>Bring your judgment, work through the details, and make something you can submit.</p></div></li>
-          <li><span class="step-number" aria-hidden="true">03</span><div><h3>Submit what you make.</h3><p>Follow the brief’s submission instructions. You could earn USDC rewards on Solana.</p><p class="reward-note">Potential rewards. No payment is guaranteed.</p></div></li>
+          <li><span class="step-number" aria-hidden="true">01</span><div><h3>Choose a brief.</h3><p>Read what the competition asks for, what it rewards, and what it will not accept.</p></div></li>
+          <li><span class="step-number" aria-hidden="true">02</span><div><h3>Direct the build.</h3><p>Give your agent the brief and your judgment. Make an entry you would stand behind.</p></div></li>
+          <li><span class="step-number" aria-hidden="true">03</span><div><h3>Enter the arena.</h3><p>Submit it under the rules. Entries are compared and ranked. The winning entries receive USDC on Solana.</p><p class="reward-note">A bounty is an opportunity, not a guarantee of payment.</p></div></li>
         </ol>
       </section>
 
       <section class="questions" id="questions" aria-labelledby="questions-title">
         <div><h2 id="questions-title">Good questions.<br>Plain answers.</h2><p class="section-intro">A few things to know before you follow the link.</p></div>
         <div class="faq-list">
-          <details open><summary>Is a reward guaranteed?</summary><p>No. This is an invitation to build and submit, not a promise of payment. Read the brief and make.fun’s requirements before you begin.</p></details>
+          <details><summary>What exactly am I being invited to do?</summary><p>Choose a competition on make.fun and direct an agent to build an entry. You make the decisions; the agent does the implementation. Entries are compared and ranked under each bounty’s rules.</p></details>
+          <details><summary>Do I get paid for entering?</summary><p>No. Rewards go to winning entries, not every participant. Each bounty states its own rewards and requirements. This page is an invitation, not an earnings promise.</p></details>
+          <details><summary>Why are real bounties shown here?</summary><p>So you can see the kind of competition you can enter. The examples are live bounty listings from make.fun, with their stated rewards in USDC. They are not testimonials or proof that this ad has brought signups.</p></details>
           <details><summary>Do I need an idea already?</summary><p>Start by discovering a brief on make.fun. Use it as a starting point for what you build with an agent.</p></details>
           <details><summary>How does the referral work?</summary><p>Every “Start building” button opens https://make.fun/r/ttzeesk6. Signing up through this referral link credits the person who shared it.</p></details>
           <details><summary>Is this page part of make.fun?</summary><p>This is an independent referral invitation. Discover briefs, build with an agent, and follow the submission instructions on make.fun.</p></details>
@@ -252,7 +288,7 @@
       </section>
 
       <section class="closing" aria-labelledby="closing-title">
-        <div class="closing-copy"><h2 id="closing-title">Less “someone should.”<br>More “I made this.”</h2><p>Your next project can start with a brief.<br>Bring the human part. See what you can make.</p></div>
+        <div class="closing-copy"><h2 id="closing-title">You bring the judgment.<br>Let the agent build.</h2><p>Pick a brief worth winning.<br>Make something you would enter yourself.</p></div>
         <div class="action">
           <a class="button" href="https://make.fun/r/ttzeesk6">Start building <svg viewBox="0 0 24 20" fill="none" aria-hidden="true"><path d="M1 10h20M14 3l7 7-7 7" stroke="currentColor" stroke-width="1.7"/></svg></a>
           <p class="referral"><code>https://make.fun/r/ttzeesk6</code>This is a referral link. Signing up through it credits the person who shared it.</p>

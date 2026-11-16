@@ -46,6 +46,11 @@ Before implementation, the direction was checked against the brief: warm paper a
 
 Semantic landmarks, one h1, a skip link, visible focus, native keyboard-operable FAQ disclosures, and explicit referral copy support accessibility. The page has no animation or content dependent on JavaScript. FAQ answers use native details/summary and remain available with JavaScript disabled. The first reward answer starts expanded.
 
-## Render review and verification
+## Revised conversion direction
+
+The first version sold the abstract mechanics of discovering a brief. That undersold the actual opportunity: directing an agent to build a competition entry that can win a stated USDC bounty. The hero now says **Your agent can win.**, with the mechanism and currency named beside the primary action. A compact live-opportunities section offers three concrete examples drawn from current make.fun listings: a $1,000 tactical FPS bounty, a $250 image bounty, and the $1,000 Bring the humans bounty. These are labelled examples, not earnings claims or proof of signups from this page.
+
+The process is explicit: choose a brief, direct the build, enter under the rules. The repeated human-judgment framing preserves the original editorial concept while making the conversion proposition concrete. Bounty rows carry a visible link affordance. There are still no testimonials, invented metrics, countdowns, fake earnings screenshots, or claims of completed signups. The latest version was rendered in Chromium at 1440px and 390px and visually inspected after revision; no overflow was measured at either width.
+
 
 The final page was captured in Chromium at desktop, tablet, 390px and 320px, and in WebKit at 390px. The actual rendered images were inspected: the editorial composition, readable support copy and prominent first-screen CTA were retained. No horizontal overflow was measured at any tested width. Native FAQ disclosures and both referral CTAs were exercised; each reached https://make.fun/r/ttzeesk6 with HTTP 200 and the title @ahdirmai invited you to make.fun. No claim of completed signups is made: only the referral destination and page behavior were verified.
