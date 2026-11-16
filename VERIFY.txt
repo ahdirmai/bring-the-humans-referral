@@ -1,0 +1,60 @@
+$ node -e '...parse #bounty-data, assert 11...'
+PASS embedded bounty JSON parses: 11 bounties
+
+$ node tools/verify-board.mjs
+PASS 1440x900 no horizontal overflow (scrollWidth 1440, innerWidth 1440)
+PASS 1440x900 shows 11 bounty rows (11 rows)
+PASS 1440x900 page basics (lang=en, h1=1, skip=true)
+PASS 1440x900 third row changes detail (Bring the humans -> Make the best three.js tactical FPS)
+PASS 1440x900 selected row carries aria-current (threejs-fps-02)
+PASS 1440x900 leaderboard tab shows ranked rows (5 rows)
+PASS 1440x900 tab activation moves focus to panel (focus=panel-leaderboard)
+PASS 1440x900 arrow keys move between tabs ({"selected":"true","focus":"tab-leaderboard"})
+PASS 1440x900 no horizontal overflow after interaction (scrollWidth 1440, innerWidth 1440)
+PASS 1024x768 no horizontal overflow (scrollWidth 1024, innerWidth 1024)
+PASS 1024x768 shows 11 bounty rows (11 rows)
+PASS 1024x768 page basics (lang=en, h1=1, skip=true)
+PASS 1024x768 third row changes detail (Bring the humans -> Make the best three.js tactical FPS)
+PASS 1024x768 selected row carries aria-current (threejs-fps-02)
+PASS 1024x768 leaderboard tab shows ranked rows (5 rows)
+PASS 1024x768 tab activation moves focus to panel (focus=panel-leaderboard)
+PASS 1024x768 arrow keys move between tabs ({"selected":"true","focus":"tab-leaderboard"})
+PASS 1024x768 no horizontal overflow after interaction (scrollWidth 1024, innerWidth 1024)
+PASS 390x844 no horizontal overflow (scrollWidth 390, innerWidth 390)
+PASS 390x844 shows 11 bounty rows (11 rows)
+PASS 390x844 page basics (lang=en, h1=1, skip=true)
+PASS 390x844 third row changes detail (Bring the humans -> Make the best three.js tactical FPS)
+PASS 390x844 selected row carries aria-current (threejs-fps-02)
+PASS mobile row opens the detail sheet
+PASS mobile targets are at least 44px tall ([])
+PASS 390x844 leaderboard tab shows ranked rows (5 rows)
+PASS 390x844 tab activation moves focus to panel (focus=panel-leaderboard)
+PASS 390x844 arrow keys move between tabs ({"selected":"true","focus":"tab-leaderboard"})
+PASS 390x844 no horizontal overflow after interaction (scrollWidth 390, innerWidth 390)
+PASS mobile sheet closes with Escape
+PASS mobile close returns focus to the row (focus=threejs-fps-02)
+PASS mobile Close button closes the sheet
+PASS mobile Close returns focus to the row (focus=threejs-fps-02)
+PASS no-JS list is static markup (11 rows)
+PASS no-JS detail is static markup (Bring the humans)
+PASS no-JS mobile no horizontal overflow (scrollWidth 390, innerWidth 390)
+PASS no-JS hides inert filters
+PASS no-JS desktop detail pane scrolls independently ({"clientHeight":772,"scrollHeight":1072,"scrolled":true,"noOverflow":true})
+PASS no-JS desktop no horizontal overflow
+PASS one row is selected on load
+PASS default sort is closing soon
+PASS search filters rows (1 row)
+PASS empty state is visible (No bounty matches that filter.)
+PASS category chip filters rows (3 rows)
+PASS biggest pot sorts first ($1,32527)
+PASS most entries sorts first (11,444 entries)
+PASS rewards show three explicit places (3)
+PASS rewards compress the remaining places (…and 7 more places from $40 to $40)
+PASS key dates state results timing
+PASS judging states the metric (Judge win rate)
+PASS paid entry fee formats as $X.XX (Entry fee$0.50)
+PASS no external requests
+PASS no console errors
+PASS screenshot desktop.png (157732 bytes)
+PASS screenshot mobile.png (107459 bytes)
+PASS all checks
