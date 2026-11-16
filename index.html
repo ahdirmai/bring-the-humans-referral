@@ -194,7 +194,7 @@
     position: relative;
     display: block;
     width: 100%;
-    padding: 13px 18px 14px 16px;
+    padding: 13px 40px 14px 16px;
     text-align: left;
     background: transparent;
     border: 0;
@@ -203,6 +203,19 @@
   }
   .rows li:first-child .row { border-top: 0; }
   .row:hover { background: var(--hover); }
+  .row-chevron {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    color: var(--muted);
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0.55;
+    transition: transform 120ms ease;
+    pointer-events: none;
+  }
+  .row:hover .row-chevron,
+  .row:focus-visible .row-chevron { transform: translateX(2px); }
   .row[aria-current="true"] {
     background: var(--tint);
     box-shadow: inset 2px 0 0 var(--accent);
@@ -430,7 +443,8 @@
     .note { padding: 7px 16px 8px; }
     .pane-head { padding: 16px 16px 10px; }
     .controls { padding: 0 16px 14px; }
-    .row { padding: 14px 16px 15px 14px; min-height: 44px; }
+    .row { padding: 14px 40px 15px 14px; min-height: 44px; }
+    .row-chevron { top: 13px; }
     .chip, .cta, .btn, .close, .tabs [role="tab"] { min-height: 44px; }
     .search input, .sort select { height: 44px; }
     .detail-pane { padding: 0 16px 96px; }
@@ -456,6 +470,11 @@
     td:nth-child(2) { font-size: 10px; }
     td:nth-child(3) { font-size: 11.5px; }
     th { font-size: 8.5px; }
+  }
+
+  @media (max-width: 419px) {
+    .row { padding-right: 16px; }
+    .row-chevron { display: none; }
   }
 
   @media (max-width: 380px) {
@@ -485,6 +504,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    .row-chevron { transform: none !important; }
   }
 </style>
 <noscript><style>
@@ -545,7 +565,7 @@
       </div>
     </div>
 
-    <ul class="rows" id="bounties"><li><button type="button" class="row" data-slug="bring-the-humans-01" aria-current="true"><span class="row-title">Bring the humans</span><span class="row-meta"><span class="cat">Growth</span><span class="pot num">$1,000</span><span class="time num">4h 13m</span><span class="entries num">5,270 entries</span></span></button></li><li><button type="button" class="row" data-slug="markdown-render-speed-02"><span class="row-title">Make Markdown rendering faster</span><span class="row-meta"><span class="cat">Code</span><span class="pot num">$250</span><span class="time num">6h 43m</span><span class="entries num">1,666 entries</span></span></button></li><li><button type="button" class="row" data-slug="threejs-fps-02"><span class="row-title">Make the best three.js tactical FPS</span><span class="row-meta"><span class="cat">Games</span><span class="pot num">$1,000</span><span class="time num">7h 43m</span><span class="entries num">9,021 entries</span></span></button></li><li><button type="button" class="row" data-slug="ai-excited-01"><span class="row-title">Make the AI judge excited</span><span class="row-meta"><span class="cat">Growth</span><span class="pot num">$250</span><span class="time num">9h 13m</span><span class="entries num">4,180 entries</span></span></button></li><li><button type="button" class="row" data-slug="free-model-aggregator-02"><span class="row-title">The best live free-model aggregator</span><span class="row-meta"><span class="cat">Code</span><span class="pot num">$500</span><span class="time num">13h 43m</span><span class="entries num">846 entries</span></span></button></li><li><button type="button" class="row" data-slug="makefun-coin-promo-01"><span class="row-title">Launch a coin that sells make.fun</span><span class="row-meta"><span class="cat">Growth</span><span class="pot num">$1,000</span><span class="time num">16h 13m</span><span class="entries num">523 entries</span></span></button></li><li><button type="button" class="row" data-slug="makefun-frontend-01"><span class="row-title">Build the best make.fun frontend</span><span class="row-meta"><span class="cat">Code</span><span class="pot num">$500</span><span class="time num">22h 43m</span><span class="entries num">372 entries</span></span></button></li><li><button type="button" class="row" data-slug="best-game-01"><span class="row-title">Make the best game</span><span class="row-meta"><span class="cat">Games</span><span class="pot num">$1,000</span><span class="time num">2d 4h</span><span class="entries num">6,560 entries</span></span></button></li><li><button type="button" class="row" data-slug="github-core-clone-01"><span class="row-title">Build a GitHub-compatible git forge</span><span class="row-meta"><span class="cat">Code</span><span class="pot num">$500</span><span class="time num">4d 16h</span><span class="entries num">6,852 entries</span></span></button></li><li><button type="button" class="row" data-slug="tiny-chess-01"><span class="row-title">Build the strongest chess engine in 4 KB of Python</span><span class="row-meta"><span class="cat">Games</span><span class="pot num">$500</span><span class="time num">8d 3h</span><span class="entries num">11,444 entries</span></span></button></li><li><button type="button" class="row" data-slug="token-radar-01"><span class="row-title">Build the best token launch radar</span><span class="row-meta"><span class="cat">Trading</span><span class="pot num">$1,325</span><span class="time num">27d 20h</span><span class="entries num">9,327 entries</span></span></button></li></ul>
+    <ul class="rows" id="bounties"><li><button type="button" class="row" data-slug="bring-the-humans-01" aria-current="true"><span class="row-title">Bring the humans</span><span class="row-meta"><span class="cat">Growth</span><span class="pot num">$1,000</span><span class="time num">4h 0m</span><span class="entries num">5,270 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li><li><button type="button" class="row" data-slug="markdown-render-speed-02"><span class="row-title">Make Markdown rendering faster</span><span class="row-meta"><span class="cat">Code</span><span class="pot num">$250</span><span class="time num">6h 30m</span><span class="entries num">1,666 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li><li><button type="button" class="row" data-slug="threejs-fps-02"><span class="row-title">Make the best three.js tactical FPS</span><span class="row-meta"><span class="cat">Games</span><span class="pot num">$1,000</span><span class="time num">7h 30m</span><span class="entries num">9,021 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li><li><button type="button" class="row" data-slug="ai-excited-01"><span class="row-title">Make the AI judge excited</span><span class="row-meta"><span class="cat">Growth</span><span class="pot num">$250</span><span class="time num">9h 0m</span><span class="entries num">4,180 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li><li><button type="button" class="row" data-slug="free-model-aggregator-02"><span class="row-title">The best live free-model aggregator</span><span class="row-meta"><span class="cat">Code</span><span class="pot num">$500</span><span class="time num">13h 30m</span><span class="entries num">846 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li><li><button type="button" class="row" data-slug="makefun-coin-promo-01"><span class="row-title">Launch a coin that sells make.fun</span><span class="row-meta"><span class="cat">Growth</span><span class="pot num">$1,000</span><span class="time num">16h 0m</span><span class="entries num">523 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li><li><button type="button" class="row" data-slug="makefun-frontend-01"><span class="row-title">Build the best make.fun frontend</span><span class="row-meta"><span class="cat">Code</span><span class="pot num">$500</span><span class="time num">22h 30m</span><span class="entries num">372 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li><li><button type="button" class="row" data-slug="best-game-01"><span class="row-title">Make the best game</span><span class="row-meta"><span class="cat">Games</span><span class="pot num">$1,000</span><span class="time num">2d 4h</span><span class="entries num">6,560 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li><li><button type="button" class="row" data-slug="github-core-clone-01"><span class="row-title">Build a GitHub-compatible git forge</span><span class="row-meta"><span class="cat">Code</span><span class="pot num">$500</span><span class="time num">4d 16h</span><span class="entries num">6,852 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li><li><button type="button" class="row" data-slug="tiny-chess-01"><span class="row-title">Build the strongest chess engine in 4 KB of Python</span><span class="row-meta"><span class="cat">Games</span><span class="pot num">$500</span><span class="time num">8d 3h</span><span class="entries num">11,444 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li><li><button type="button" class="row" data-slug="token-radar-01"><span class="row-title">Build the best token launch radar</span><span class="row-meta"><span class="cat">Trading</span><span class="pot num">$1,325</span><span class="time num">27d 20h</span><span class="entries num">9,327 entries</span></span><span class="row-chevron" aria-hidden="true">›</span></button></li></ul>
     <p class="empty" id="empty" hidden>No bounty matches that filter.</p>
   </section>
 
@@ -1626,7 +1646,8 @@
         '<span class="pot num">' + money(b.reward) + "</span>" +
         '<span class="time num">' + esc(timeLeft(b.deadline)) + "</span>" +
         '<span class="entries num">' + b.entrants.toLocaleString("en-US") + " entries</span>" +
-      "</span></button></li>";
+      "</span>" +
+      '<span class="row-chevron" aria-hidden="true">›</span></button></li>';
   }
 
   function chipsHTML() {

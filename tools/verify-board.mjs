@@ -99,6 +99,19 @@ for (const size of sizes) {
   check(initial.h1 === 1 && initial.lang === 'en' && initial.skip, `${size.width}x${size.height} page basics`,
     `lang=${initial.lang}, h1=${initial.h1}, skip=${initial.skip}`);
 
+  const chevrons = await page.evaluate(() => {
+    const rows = Array.from(document.querySelectorAll('#bounties .row'));
+    return {
+      rows: rows.length,
+      wrong: rows.filter((row) => {
+        const glyph = row.querySelector('.row-chevron');
+        return !glyph || glyph.getAttribute('aria-hidden') !== 'true' || glyph.textContent.trim() !== '›';
+      }).length
+    };
+  });
+  check(chevrons.rows === 11 && chevrons.wrong === 0,
+    `${size.width}x${size.height} each row has an aria-hidden chevron`, JSON.stringify(chevrons));
+
   if (size.name !== 'mobile') {
     const meta = await page.evaluate(() => {
       const spans = document.querySelectorAll('.row .row-meta');
@@ -197,11 +210,13 @@ const staticState = await noJsPage.evaluate(() => ({
   scrollWidth: document.documentElement.scrollWidth,
   innerWidth: window.innerWidth,
   controlsVisible: getComputedStyle(document.querySelector('.controls')).display !== 'none',
+  chevrons: document.querySelectorAll('#bounties .row-chevron[aria-hidden="true"]').length,
   more: document.querySelector('#panel-overview .more')?.textContent || '',
   kind: Boolean(document.querySelector('#panel-overview .kind')) ||
     (document.querySelector('#panel-overview')?.textContent || '').includes('kind:')
 }));
 check(staticState.rows === 11, 'no-JS list is static markup', `${staticState.rows} rows`);
+check(staticState.chevrons === 11, 'no-JS rows carry aria-hidden chevrons', `${staticState.chevrons} chevrons`);
 check(staticState.title === 'Bring the humans', 'no-JS detail is static markup', staticState.title);
 check(staticState.more === '…and 97 more places from $6 to $10', 'no-JS reward tail is static markup', staticState.more);
 check(!staticState.kind, 'no-JS detail has no enum chip');

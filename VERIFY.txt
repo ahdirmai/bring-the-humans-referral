@@ -5,6 +5,7 @@ $ node tools/verify-board.mjs
 PASS 1440x900 no horizontal overflow (scrollWidth 1440, innerWidth 1440)
 PASS 1440x900 shows 11 bounty rows (11 rows)
 PASS 1440x900 page basics (lang=en, h1=1, skip=true)
+PASS 1440x900 each row has an aria-hidden chevron ({"rows":11,"wrong":0})
 PASS 1440x900 row meta stays on one line (0 wrapped)
 PASS 1440x900 row meta separators render ({"wrapped":0,"content":"\"·\"","color":"rgb(201, 202, 189)","margin":"8px"})
 PASS 1440x900 third row changes detail (Bring the humans -> Make the best three.js tactical FPS)
@@ -16,6 +17,7 @@ PASS 1440x900 no horizontal overflow after interaction (scrollWidth 1440, innerW
 PASS 1024x768 no horizontal overflow (scrollWidth 1024, innerWidth 1024)
 PASS 1024x768 shows 11 bounty rows (11 rows)
 PASS 1024x768 page basics (lang=en, h1=1, skip=true)
+PASS 1024x768 each row has an aria-hidden chevron ({"rows":11,"wrong":0})
 PASS 1024x768 row meta stays on one line (0 wrapped)
 PASS 1024x768 row meta separators render ({"wrapped":0,"content":"\"·\"","color":"rgb(201, 202, 189)","margin":"8px"})
 PASS 1024x768 third row changes detail (Bring the humans -> Make the best three.js tactical FPS)
@@ -27,6 +29,7 @@ PASS 1024x768 no horizontal overflow after interaction (scrollWidth 1024, innerW
 PASS 390x844 no horizontal overflow (scrollWidth 390, innerWidth 390)
 PASS 390x844 shows 11 bounty rows (11 rows)
 PASS 390x844 page basics (lang=en, h1=1, skip=true)
+PASS 390x844 each row has an aria-hidden chevron ({"rows":11,"wrong":0})
 PASS 390x844 third row changes detail (Bring the humans -> Make the best three.js tactical FPS)
 PASS 390x844 selected row carries aria-current (threejs-fps-02)
 PASS mobile row opens the detail sheet
@@ -40,6 +43,7 @@ PASS mobile close returns focus to the row (focus=threejs-fps-02)
 PASS mobile Close button closes the sheet
 PASS mobile Close returns focus to the row (focus=threejs-fps-02)
 PASS no-JS list is static markup (11 rows)
+PASS no-JS rows carry aria-hidden chevrons (11 chevrons)
 PASS no-JS detail is static markup (Bring the humans)
 PASS no-JS reward tail is static markup (…and 97 more places from $6 to $10)
 PASS no-JS detail has no enum chip
@@ -62,6 +66,6 @@ PASS no developer enum chip in the detail ({"chip":false,"text":false})
 PASS paid entry fee formats as $X.XX (Entry fee$0.50)
 PASS no external requests
 PASS no console errors
-PASS screenshot desktop.png (156688 bytes)
-PASS screenshot mobile.png (109367 bytes)
+PASS screenshot desktop.png (158017 bytes)
+PASS screenshot mobile.png (109328 bytes)
 PASS all checks
