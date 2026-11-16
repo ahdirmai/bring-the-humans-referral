@@ -99,6 +99,19 @@ for (const size of sizes) {
   check(initial.h1 === 1 && initial.lang === 'en' && initial.skip, `${size.width}x${size.height} page basics`,
     `lang=${initial.lang}, h1=${initial.h1}, skip=${initial.skip}`);
 
+  if (size.name !== 'mobile') {
+    const meta = await page.evaluate(() => {
+      const spans = document.querySelectorAll('.row .row-meta');
+      const wrapped = Array.from(spans).filter((el) => el.getBoundingClientRect().height > 30).length;
+      const target = document.querySelector('.row-meta > span:nth-child(2)');
+      const before = getComputedStyle(target, '::before');
+      return { wrapped, content: before.content, color: before.color, margin: before.marginRight };
+    });
+    check(meta.wrapped === 0, `${size.width}x${size.height} row meta stays on one line`, `${meta.wrapped} wrapped`);
+    check(meta.content === '"·"' && meta.margin === '8px', `${size.width}x${size.height} row meta separators render`,
+      JSON.stringify(meta));
+  }
+
   if (size.name === 'mobile') {
     await page.screenshot({ path: path.join(shots, 'mobile.png'), fullPage: true });
   }
@@ -183,10 +196,15 @@ const staticState = await noJsPage.evaluate(() => ({
   title: document.querySelector('#detail-title')?.textContent || '',
   scrollWidth: document.documentElement.scrollWidth,
   innerWidth: window.innerWidth,
-  controlsVisible: getComputedStyle(document.querySelector('.controls')).display !== 'none'
+  controlsVisible: getComputedStyle(document.querySelector('.controls')).display !== 'none',
+  more: document.querySelector('#panel-overview .more')?.textContent || '',
+  kind: Boolean(document.querySelector('#panel-overview .kind')) ||
+    (document.querySelector('#panel-overview')?.textContent || '').includes('kind:')
 }));
 check(staticState.rows === 11, 'no-JS list is static markup', `${staticState.rows} rows`);
 check(staticState.title === 'Bring the humans', 'no-JS detail is static markup', staticState.title);
+check(staticState.more === '…and 97 more places from $6 to $10', 'no-JS reward tail is static markup', staticState.more);
+check(!staticState.kind, 'no-JS detail has no enum chip');
 check(staticState.scrollWidth <= staticState.innerWidth, 'no-JS mobile no horizontal overflow',
   `scrollWidth ${staticState.scrollWidth}, innerWidth ${staticState.innerWidth}`);
 check(!staticState.controlsVisible, 'no-JS hides inert filters');
@@ -242,9 +260,14 @@ const detailCopy = await page.evaluate(() => ({
   metric: document.querySelector('#panel-overview .metric')?.textContent || ''
 }));
 check(detailCopy.places === 3, 'rewards show three explicit places', `${detailCopy.places}`);
-check(detailCopy.more.includes('more places from'), 'rewards compress the remaining places', detailCopy.more);
+check(detailCopy.more === '…and 7 more places at $40', 'equal remaining rewards compress with at', detailCopy.more);
 check(detailCopy.after, 'key dates state results timing');
 check(detailCopy.metric.length > 0, 'judging states the metric', detailCopy.metric);
+const enumChip = await page.evaluate(() => ({
+  chip: Boolean(document.querySelector('#panel-overview .kind')),
+  text: document.querySelector('#panel-overview').textContent.includes('kind:')
+}));
+check(!enumChip.chip && !enumChip.text, 'no developer enum chip in the detail', JSON.stringify(enumChip));
 
 await page.goto(url);
 await page.waitForSelector('#bounties .row');
