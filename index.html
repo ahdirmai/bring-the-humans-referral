@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e3">
+  <meta name="description" content="Discover a brief on make.fun, build with an agent, and submit what you make. An independent referral invitation for humans who build.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Bring the humans. — A make.fun invitation</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f0e3;
+      --sheet: #faf7ed;
+      --ink: #242d29;
+      --blue: #293fb3;
+      --muted: #58605a;
+      --line: #c8c9ba;
+      --tape: #e0e9b1;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 28px; }
+    body { margin: 0; background: #deded2; color: var(--ink); font: 17px/1.6 var(--sans); }
+    a { color: inherit; text-underline-offset: .22em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+    ::selection { background: var(--blue); color: var(--sheet); }
+    .skip-link { position: absolute; z-index: 10; top: 16px; left: 16px; padding: 12px 20px; background: var(--blue); color: white; transform: translateY(-160%); }
+    .skip-link:focus { transform: none; }
+    .notebook { position: relative; max-width: 1480px; margin: 20px auto; width: calc(100% - 40px); padding: 0 58px 0 92px; border: 1px solid #c5c7b9; background: var(--paper); }
+    .notebook::before { content: ""; position: absolute; top: 108px; bottom: 28px; left: 19px; width: 16px; background: radial-gradient(circle, #d4d5c7 0 4px, #bfc2b1 4.5px, transparent 5px) 0 0 / 16px 88px repeat-y; }
+    .notebook::after { content: ""; position: absolute; top: 0; bottom: 0; left: 57px; width: 1px; background: #d5d3c3; pointer-events: none; }
+    .masthead { min-height: 100px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--ink); }
+    .brand { display: flex; align-items: center; gap: 13px; }
+    .brand-mark { width: 28px; height: 28px; color: var(--blue); }
+    .wordmark { font-size: 29px; font-weight: 800; letter-spacing: -.065em; line-height: 1; }
+    .brand-note { margin-left: 19px; padding-left: 24px; border-left: 1px solid var(--line); font-size: 14px; color: var(--muted); line-height: 1.4; }
+    .nav { display: flex; align-items: center; gap: 31px; }
+    .nav a { display: inline-flex; min-height: 44px; align-items: center; font-size: 14px; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; padding: 60px 0 64px; }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1 { color: var(--blue); font: 400 clamp(88px, 10.1vw, 152px)/.91 var(--serif); letter-spacing: -.065em; }
+    h1 span { display: block; }
+    .hero-copy { position: relative; z-index: 1; }
+    .intro { max-width: 510px; margin-top: 30px; font-size: clamp(20px, 1.65vw, 25px); line-height: 1.48; letter-spacing: -.025em; }
+    .action { margin-top: 29px; }
+    .button { display: inline-flex; min-height: 58px; min-width: 213px; align-items: center; justify-content: space-between; gap: 35px; padding: 13px 23px; background: var(--blue); color: var(--sheet); border: 1px solid var(--blue); border-radius: 3px; font-size: 17px; font-weight: 650; text-decoration: none; line-height: 1.4; }
+    .button:hover { background: #203393; text-decoration: none; }
+    .button svg { width: 23px; height: 20px; flex: none; }
+    .referral { max-width: 370px; margin-top: 14px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .referral code { display: block; margin-bottom: 4px; color: var(--blue); font: 14px/1.6 var(--mono); overflow-wrap: anywhere; }
+    .hero-art { position: relative; margin: 3px 3px 0 20px; }
+    .note { position: relative; padding: 26px 27px 22px; border: 1px solid #b9beaf; background-color: var(--sheet); background-image: linear-gradient(#dce0d266 1px, transparent 1px), linear-gradient(90deg, #dce0d266 1px, transparent 1px); background-size: 24px 24px; transform: rotate(3deg); box-shadow: 4px 6px 0 #e2dfcf; }
+    .note::before { content: ""; position: absolute; width: 111px; height: 30px; background: var(--tape); top: -15px; left: 35%; transform: rotate(-7deg); opacity: .95; clip-path: polygon(3% 0, 99% 4%, 97% 93%, 0 100%); }
+    .note-heading { padding-bottom: 15px; border-bottom: 1px solid #bec4b6; color: var(--blue); font: 24px/1.2 var(--serif); letter-spacing: -.025em; }
+    .human-drawing { display: block; width: 100%; height: auto; margin-top: 4px; color: var(--blue); }
+    .drawing-caption { margin: 7px 0 19px; color: var(--blue); font: italic 21px/1.3 var(--serif); text-align: center; }
+    .note-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; align-items: baseline; border-top: 1px solid #bec4b6; padding-top: 13px; font-size: 14px; line-height: 1.4; color: var(--muted); }
+    .note-foot span:last-child { color: var(--blue); font: italic 24px/1.3 var(--serif); }
+    figcaption { margin: 20px 0 0 8px; color: var(--muted); font-size: 14px; }
+    .section-line { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); padding: 13px 0; font-size: 14px; color: var(--muted); }
+    .section-line p:first-child { color: var(--ink); }
+    .section-line .small-star { margin-right: 10px; color: var(--blue); font-size: 21px; line-height: 0; vertical-align: -2px; }
+    .process { display: grid; grid-template-columns: 1fr 1.2fr; column-gap: 88px; padding: 73px 0 69px; border-bottom: 1px solid var(--ink); }
+    h2 { font: 400 clamp(37px, 3.7vw, 54px)/1.06 var(--serif); letter-spacing: -.045em; }
+    .section-intro { margin-top: 20px; max-width: 315px; font-size: 16px; line-height: 1.65; color: var(--muted); }
+    .process-arrow { width: 150px; height: 79px; margin: 26px 0 0 100px; color: var(--blue); }
+    .steps { list-style: none; margin: 0; padding: 0; }
+    .steps li { display: grid; grid-template-columns: 45px 1fr; gap: 13px; padding: 24px 0; border-top: 1px solid var(--line); }
+    .steps li:first-child { padding-top: 0; border-top: 0; }
+    .steps li:last-child { padding-bottom: 0; }
+    .step-number { padding-top: 4px; color: var(--blue); font: 15px/1.5 var(--mono); }
+    h3 { font-size: 21px; font-weight: 600; line-height: 1.35; letter-spacing: -.035em; }
+    .steps p { margin-top: 7px; color: var(--muted); font-size: 15px; line-height: 1.65; max-width: 440px; }
+    .steps .reward-note { margin-top: 9px; font-size: 14px; color: var(--ink); }
+    .questions { display: grid; grid-template-columns: 1fr 1.2fr; column-gap: 88px; padding: 65px 0 71px; }
+    .questions h2 { max-width: 280px; }
+    .faq-list { border-top: 1px solid var(--line); }
+    details { border-bottom: 1px solid var(--line); }
+    summary { position: relative; display: block; cursor: pointer; min-height: 66px; padding: 20px 39px 20px 0; font-size: 17px; font-weight: 600; line-height: 1.5; letter-spacing: -.025em; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 4px; top: 16px; font-size: 25px; font-weight: 400; line-height: 1.4; color: var(--blue); }
+    details[open] summary::after { content: "−"; }
+    details p { max-width: 480px; padding: 0 24px 22px 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
+    .closing { position: relative; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; margin: 0 -26px; padding: 45px 35px 43px; background: var(--blue); color: var(--sheet); }
+    .closing::before { content: ""; position: absolute; width: 91px; height: 27px; background: var(--tape); top: -11px; left: 34px; transform: rotate(-6deg); clip-path: polygon(3% 0, 100% 3%, 98% 100%, 0 94%); }
+    .closing h2 { font-size: clamp(38px, 3.9vw, 57px); }
+    .closing-copy > p { max-width: 390px; margin-top: 17px; font-size: 16px; line-height: 1.6; }
+    .closing .action { justify-self: end; margin-top: 0; width: 300px; }
+    .closing .button { color: var(--blue); background: var(--sheet); border-color: var(--sheet); width: 100%; }
+    .closing .button:hover { background: var(--tape); border-color: var(--tape); }
+    .closing .button:focus-visible { outline-color: var(--sheet); }
+    .closing .referral, .closing .referral code { color: var(--sheet); }
+    .closing .referral { max-width: 300px; }
+    .footer { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 30px 0 26px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .footer p:first-child { max-width: 530px; }
+    .footer p:last-child { white-space: nowrap; color: var(--blue); font-family: var(--serif); font-size: 17px; }
+    @media (min-width: 1600px) { .notebook { margin-top: 30px; margin-bottom: 30px; } }
+    @media (max-width: 1100px) {
+      .notebook { padding-right: 35px; padding-left: 73px; }
+      .notebook::after { left: 46px; }
+      .notebook::before { left: 13px; }
+      .brand-note { display: none; }
+      .hero { gap: 10px; padding-top: 50px; }
+      h1 { font-size: 10.1vw; }
+      .hero-art { margin-left: 12px; }
+      .note { padding: 21px 18px 18px; }
+      .note-heading { font-size: 21px; }
+      .note-foot { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .note-foot span:last-child { font-size: 21px; }
+      .process, .questions { gap: 45px; }
+      .closing { margin-right: -15px; margin-left: -15px; padding-right: 27px; padding-left: 27px; }
+    }
+    @media (max-width: 760px) {
+      body { font-size: 16px; background: var(--paper); }
+      .notebook { width: 100%; margin: 0; padding: 0 22px 0 36px; border: 0; }
+      .notebook::after { left: 23px; }
+      .notebook::before { left: 3px; top: 94px; width: 14px; background-size: 14px 88px; }
+      .masthead { min-height: 79px; gap: 10px; }
+      .brand { gap: 8px; }
+      .brand-mark { width: 22px; height: 22px; }
+      .wordmark { font-size: 25px; }
+      .nav { gap: 17px; }
+      .hero { display: block; padding: 39px 0 35px; }
+      h1 { font-size: clamp(66px, 20.3vw, 124px); line-height: .94; }
+      .intro { margin-top: 24px; font-size: 20px; line-height: 1.5; max-width: 510px; }
+      .action { margin-top: 23px; }
+      .button { min-height: 56px; min-width: 213px; }
+      .referral { margin-top: 13px; max-width: 345px; }
+      .hero-art { max-width: 420px; margin: 48px auto 0; padding: 0 9px; }
+      .note { padding: 22px 24px 18px; transform: rotate(2deg); }
+      .note-heading { font-size: 23px; }
+      .human-drawing { max-height: 290px; }
+      .note-foot span:last-child { font-size: 23px; }
+      figcaption { margin-top: 17px; }
+      .section-line { padding: 14px 0; }
+      .section-line p:last-child { display: none; }
+      .process, .questions { display: block; padding: 40px 0; }
+      h2 { font-size: 39px; line-height: 1.1; }
+      .section-intro { margin-top: 15px; font-size: 15px; max-width: 320px; }
+      .process-arrow { display: none; }
+      .steps { margin-top: 30px; }
+      .steps li { grid-template-columns: 34px 1fr; gap: 8px; padding: 23px 0; }
+      h3 { font-size: 20px; }
+      .steps p { font-size: 15px; }
+      .questions h2 { max-width: none; }
+      .faq-list { margin-top: 26px; }
+      summary { font-size: 16px; padding-top: 18px; padding-bottom: 18px; min-height: 64px; }
+      details p { font-size: 14px; padding-right: 10px; }
+      .closing { display: block; margin: 7px -9px 0; padding: 36px 23px 28px; }
+      .closing::before { left: 23px; }
+      .closing h2 { font-size: 40px; }
+      .closing-copy > p { font-size: 15px; margin-top: 16px; }
+      .closing .action { width: 100%; margin-top: 24px; }
+      .closing .referral { max-width: 100%; }
+      .footer { display: block; padding: 24px 0; }
+      .footer p:last-child { margin-top: 14px; font-size: 16px; }
+    }
+    @media (max-width: 359px) {
+      .notebook { padding-right: 17px; padding-left: 31px; }
+      .nav { gap: 10px; }
+      .brand-mark { display: none; }
+      h1 { font-size: 20vw; }
+      .note { padding-right: 17px; padding-left: 17px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      body { background: white; }
+      .notebook { width: 100%; margin: 0; border: 0; }
+      .skip-link, .nav { display: none; }
+      details { break-inside: avoid; }
+      details > p { display: block; }
+      .closing { print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="notebook">
+    <header class="masthead">
+      <div class="brand" aria-label="make.fun — a builder’s invitation">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2v28M4 9l24 14M4 23 28 9" stroke="currentColor" stroke-width="4"/></svg>
+        <span class="wordmark">make.fun</span>
+        <span class="brand-note">A builder’s<br>invitation</span>
+      </div>
+      <nav class="nav" aria-label="On this page">
+        <a href="#process">The process</a>
+        <a href="#questions">FAQ</a>
+      </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <h1 id="page-title"><span>Bring the</span><span>humans.</span></h1>
+          <p class="intro">Discover a brief. Build with an agent. Submit what you make. You could earn USDC rewards on Solana.</p>
+          <div class="action">
+            <a class="button" href="https://make.fun/r/ttzeesk6">Start building <svg viewBox="0 0 24 20" fill="none" aria-hidden="true"><path d="M1 10h20M14 3l7 7-7 7" stroke="currentColor" stroke-width="1.7"/></svg></a>
+            <p class="referral"><code>https://make.fun/r/ttzeesk6</code>This is a referral link. Signing up through it credits the person who shared it.</p>
+          </div>
+        </div>
+
+        <figure class="hero-art">
+          <div class="note">
+            <p class="note-heading">The human element.</p>
+            <svg class="human-drawing" viewBox="0 0 380 300" fill="none" aria-hidden="true">
+              <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M187 54c-1 36 1 65 3 104M187 165c3 43 2 77 0 112" stroke-width="15"/>
+                <path d="M99 96c32 20 59 39 88 67M194 169c32 26 58 44 91 65" stroke-width="15"/>
+                <path d="M90 222c35-17 62-33 97-55M196 163c27-21 59-37 94-53" stroke-width="15"/>
+                <path d="M188 53c-3 28-2 54 0 76M102 97c25 15 45 31 66 51M91 222c24-12 47-23 70-38" stroke="var(--sheet)" stroke-width="2"/>
+                <path d="M302 47c-8-11-20-13-30-11-18 4-21 27-18 40m-8-7 8 10 10-8" stroke-width="1.6"/>
+                <path d="M58 272c6 13 20 23 36 24M67 272l-11-3-2 11" stroke-width="1.5"/>
+                <path d="M245 281c17 3 32 1 47-7" stroke-width="1.5"/>
+              </g>
+              <text x="282" y="37" fill="currentColor" font-family="Georgia, serif" font-style="italic" font-size="18" transform="rotate(7 282 37)">that’s you</text>
+            </svg>
+            <p class="drawing-caption">A point of view goes a long way.</p>
+            <div class="note-foot"><span>Bring your judgment.<br>Make something real.</span><span>Tools need people.</span></div>
+          </div>
+          <figcaption>A working note for the person behind the prompt.</figcaption>
+        </figure>
+      </section>
+
+      <div class="section-line"><p><span class="small-star" aria-hidden="true">✳</span> Curiosity is a good starting point.</p><p>Your next build starts with a brief.</p></div>
+
+      <section class="process" id="process" aria-labelledby="process-title">
+        <div>
+          <h2 id="process-title">From “what if”<br>to “here it is.”</h2>
+          <p class="section-intro">Bring your technical curiosity. Here’s how to turn it into a submission on make.fun.</p>
+          <svg class="process-arrow" viewBox="0 0 150 79" fill="none" aria-hidden="true"><path d="M5 6c-5 40 46 60 128 48m-17-10 20 9-16 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <ol class="steps">
+          <li><span class="step-number" aria-hidden="true">01</span><div><h3>Find your brief.</h3><p>Explore make.fun and discover a brief you want to take on.</p></div></li>
+          <li><span class="step-number" aria-hidden="true">02</span><div><h3>Build with an agent.</h3><p>Bring your judgment, work through the details, and make something you can submit.</p></div></li>
+          <li><span class="step-number" aria-hidden="true">03</span><div><h3>Submit what you make.</h3><p>Follow the brief’s submission instructions. You could earn USDC rewards on Solana.</p><p class="reward-note">Potential rewards. No payment is guaranteed.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="questions" id="questions" aria-labelledby="questions-title">
+        <div><h2 id="questions-title">Good questions.<br>Plain answers.</h2><p class="section-intro">A few things to know before you follow the link.</p></div>
+        <div class="faq-list">
+          <details open><summary>Is a reward guaranteed?</summary><p>No. This is an invitation to build and submit, not a promise of payment. Read the brief and make.fun’s requirements before you begin.</p></details>
+          <details><summary>Do I need an idea already?</summary><p>Start by discovering a brief on make.fun. Use it as a starting point for what you build with an agent.</p></details>
+          <details><summary>How does the referral work?</summary><p>Every “Start building” button opens https://make.fun/r/ttzeesk6. Signing up through this referral link credits the person who shared it.</p></details>
+          <details><summary>Is this page part of make.fun?</summary><p>This is an independent referral invitation. Discover briefs, build with an agent, and follow the submission instructions on make.fun.</p></details>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <div class="closing-copy"><h2 id="closing-title">Less “someone should.”<br>More “I made this.”</h2><p>Your next project can start with a brief.<br>Bring the human part. See what you can make.</p></div>
+        <div class="action">
+          <a class="button" href="https://make.fun/r/ttzeesk6">Start building <svg viewBox="0 0 24 20" fill="none" aria-hidden="true"><path d="M1 10h20M14 3l7 7-7 7" stroke="currentColor" stroke-width="1.7"/></svg></a>
+          <p class="referral"><code>https://make.fun/r/ttzeesk6</code>This is a referral link. Signing up through it credits the person who shared it.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><p>An independent invitation to make.fun. Potential USDC rewards on Solana; no payment is guaranteed.</p><p>Made for making.</p></footer>
+  </div>
+</body>
+</html>
